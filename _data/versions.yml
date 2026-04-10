@@ -1,0 +1,41 @@
+- code: 12
+  name: "3.0.4"
+  date: "3 Dec 2024"
+  image: "assets/images/v12.png"
+  download: "https://github.com/Hukuton/longoi-dot-ulun-kristian-archive/releases/download/V1.0/12.apk"
+  description: "The latest stable version of Longoi."
+
+- code: 8
+  name: "3.0.1"
+  date: "29 Mar 2022"
+  image: "assets/images/v8.png"
+  download: "https://github.com/Hukuton/longoi-dot-ulun-kristian-archive/releases/download/V1.0/8.apk"
+  description: "Major maintenance update."
+
+- code: 7
+  name: "3.0.0"
+  date: "30 Dec 2021"
+  image: "assets/images/v7.png"
+  download: "https://github.com/Hukuton/longoi-dot-ulun-kristian-archive/releases/download/V1.0/7.apk"
+  description: "The transition to version 3.0."
+
+- code: 6
+  name: "2.2.0"
+  date: "26 Jul 2016"
+  image: "assets/images/v6.png"
+  download: "https://github.com/Hukuton/longoi-dot-ulun-kristian-archive/releases/download/V1.0/6.apk"
+  description: "Legacy APK for older Android devices."
+
+- code: 4
+  name: "1.0.3"
+  date: "27 Sept 2015"
+  image: "assets/images/v4.png"
+  download: "https://github.com/Hukuton/longoi-dot-ulun-kristian-archive/releases/download/V1.0/4.apk"
+  description: "Early version with original UI."
+
+- code: 2
+  name: "1.0.1"
+  date: "24 Aug 2015"
+  image: "assets/images/v2.png"
+  download: "https://github.com/Hukuton/longoi-dot-ulun-kristian-archive/releases/download/V1.0/2.apk"
+  description: "The classic version from the early days."
