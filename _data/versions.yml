@@ -1,41 +1,59 @@
 - code: 12
   name: "3.0.4"
   date: "3 Dec 2024"
-  image: "assets/images/v12.png"
+  images:
+    - "assets/images/v12_1.png"
+    - "assets/images/v12_2.png"
+    - "assets/images/v12_3.png"
   download: "https://github.com/Hukuton/longoi-dot-ulun-kristian-archive/releases/download/V1.0/12.apk"
   description: "The latest stable version of Longoi."
 
 - code: 8
   name: "3.0.1"
   date: "29 Mar 2022"
-  image: "assets/images/v8.png"
+  images:
+    - "assets/images/v8_1.png"
+    - "assets/images/v8_2.png"
+    - "assets/images/v8_3.png"
   download: "https://github.com/Hukuton/longoi-dot-ulun-kristian-archive/releases/download/V1.0/8.apk"
   description: "Major maintenance update."
 
 - code: 7
   name: "3.0.0"
   date: "30 Dec 2021"
-  image: "assets/images/v7.png"
+  images:
+    - "assets/images/v7_1.png"
+    - "assets/images/v7_2.png"
+    - "assets/images/v7_3.png"
   download: "https://github.com/Hukuton/longoi-dot-ulun-kristian-archive/releases/download/V1.0/7.apk"
   description: "The transition to version 3.0."
 
 - code: 6
   name: "2.2.0"
   date: "26 Jul 2016"
-  image: "assets/images/v6.png"
+  images:
+    - "assets/images/v6_1.png"
+    - "assets/images/v6_2.png"
+    - "assets/images/v6_3.png"
   download: "https://github.com/Hukuton/longoi-dot-ulun-kristian-archive/releases/download/V1.0/6.apk"
   description: "Legacy APK for older Android devices."
 
 - code: 4
   name: "1.0.3"
   date: "27 Sept 2015"
-  image: "assets/images/v4.png"
+  images:
+    - "assets/images/v4_1.png"
+    - "assets/images/v4_2.png"
+    - "assets/images/v4_3.png"
   download: "https://github.com/Hukuton/longoi-dot-ulun-kristian-archive/releases/download/V1.0/4.apk"
   description: "Early version with original UI."
 
 - code: 2
   name: "1.0.1"
   date: "24 Aug 2015"
-  image: "assets/images/v2.png"
+  images:
+    - "assets/images/v2_1.png"
+    - "assets/images/v2_2.png"
+    - "assets/images/v2_3.png"
   download: "https://github.com/Hukuton/longoi-dot-ulun-kristian-archive/releases/download/V1.0/2.apk"
   description: "The classic version from the early days."
