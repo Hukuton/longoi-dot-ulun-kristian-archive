@@ -1,0 +1,57 @@
+---
+layout: null
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ site.title }}</title>
+    <style>
+        body { font-family: sans-serif; background-color: #f4f4f9; padding: 20px; text-align: center; }
+        .gallery { display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; }
+        .card { background: #fff; border-radius: 8px; width: 320px; padding: 15px; text-align: left; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
+        
+        /* The Image Scroller */
+        .image-container { 
+            display: flex; 
+            overflow-x: auto; 
+            gap: 10px; 
+            margin-bottom: 15px;
+            padding-bottom: 5px;
+        }
+        .image-container img { 
+            height: 200px; /* Fixed height for consistency */
+            border-radius: 4px; 
+            border: 1px solid #ddd;
+        }
+        
+        .version-title { font-size: 1.2em; margin: 0; }
+        .release-date { font-size: 0.85em; color: #666; margin-bottom: 10px; }
+        .download-btn { 
+            display: block; background: #007bff; color: white; 
+            text-align: center; padding: 10px; text-decoration: none; 
+            border-radius: 4px; font-weight: bold; margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>{{ site.title }}</h1>
+    <div class="gallery">
+        {% for app in site.data.versions %}
+        <div class="card">
+            <div class="image-container">
+                {% for img_path in app.images %}
+                <img src="{{ img_path }}" alt="Screenshot">
+                {% endfor %}
+            </div>
+            
+            <h2 class="version-title">Version {{ app.name }}</h2>
+            <div class="release-date">Released: {{ app.date }} (Code: {{ app.code }})</div>
+            <p>{{ app.description }}</p>
+            <a href="{{ app.download }}" class="download-btn">Download APK</a>
+        </div>
+        {% endfor %}
+    </div>
+</body>
+</html>
