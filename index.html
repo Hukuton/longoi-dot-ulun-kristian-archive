@@ -8,50 +8,244 @@ layout: null
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ site.title }}</title>
     <style>
-        body { font-family: sans-serif; background-color: #f4f4f9; padding: 20px; text-align: center; }
-        .gallery { display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; }
-        .card { background: #fff; border-radius: 8px; width: 320px; padding: 15px; text-align: left; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
+        body { 
+            font-family: sans-serif; 
+            background-color: #f4f4f9; 
+            padding: 20px; 
+            margin: 0;
+            color: #333;
+        }
         
-        /* The Image Scroller */
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        /* Changed from Grid to a Vertical Column */
+        .gallery { 
+            display: flex; 
+            flex-direction: column; /* Stacks items vertically */
+            align-items: center;    /* Centers the cards */
+            gap: 40px;              /* Adds more space between versions */
+            max-width: 800px;       /* Keeps it from getting too wide on PC */
+            margin: 0 auto;
+        }
+
+        .card { 
+            background: #fff; 
+            border-radius: 12px; 
+            width: 100%; 
+            padding: 25px; 
+            box-sizing: border-box;
+            box-shadow: 0 6px 12px rgba(0,0,0,0.08); 
+        }
+        
+        /* Bigger images in the scroller */
         .image-container { 
             display: flex; 
             overflow-x: auto; 
-            gap: 10px; 
-            margin-bottom: 15px;
-            padding-bottom: 5px;
+            gap: 15px; 
+            margin-bottom: 20px;
+            padding-bottom: 10px;
         }
         .image-container img { 
-            height: 200px; /* Fixed height for consistency */
-            border-radius: 4px; 
+            height: 300px; /* Made images much bigger */
+            border-radius: 6px; 
             border: 1px solid #ddd;
+            cursor: pointer; /* Changes mouse to a pointer hand to indicate clickability */
+            transition: transform 0.2s;
+        }
+        .image-container img:hover {
+            transform: scale(1.02); /* Slight zoom effect on hover */
         }
         
-        .version-title { font-size: 1.2em; margin: 0; }
-        .release-date { font-size: 0.85em; color: #666; margin-bottom: 10px; }
-        .download-btn { 
-            display: block; background: #007bff; color: white; 
-            text-align: center; padding: 10px; text-decoration: none; 
-            border-radius: 4px; font-weight: bold; margin-top: 10px;
+        .version-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 10px;
+            margin-bottom: 15px;
         }
+        .version-title { font-size: 1.5em; margin: 0; }
+        .release-date { font-size: 0.9em; color: #666; }
+        
+        .description { line-height: 1.5; font-size: 1.05em; }
+
+        .download-btn { 
+            display: inline-block; 
+            background: #007bff; 
+            color: white; 
+            padding: 12px 20px; 
+            text-decoration: none; 
+            border-radius: 6px; 
+            font-weight: bold; 
+            margin-top: 15px;
+        }
+        .download-btn:hover { background: #0056b3; }
+
+        /* --- LIGHTBOX (FULLSCREEN VIEWER) CSS --- */
+        .lightbox {
+            display: none; /* Hidden by default */
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9); /* Dark background */
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+        
+        .lightbox-content {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            height: 80%;
+        }
+
+        .lightbox img {
+            max-height: 90vh;
+            max-width: 80vw;
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+        }
+
+        /* Navigation Buttons inside Lightbox */
+        .close-btn {
+            position: absolute;
+            top: 20px;
+            right: 35px;
+            color: #f1f1f1;
+            font-size: 40px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        .nav-btn {
+            cursor: pointer;
+            color: white;
+            font-size: 50px;
+            font-weight: bold;
+            padding: 20px;
+            background: transparent;
+            border: none;
+            user-select: none;
+        }
+        .nav-btn:hover { color: #bbb; }
+        
+        /* Hide scrollbar for neatness but keep functionality */
+        .image-container::-webkit-scrollbar { height: 8px; }
+        .image-container::-webkit-scrollbar-track { background: #f1f1f1; border-radius: 4px;}
+        .image-container::-webkit-scrollbar-thumb { background: #ccc; border-radius: 4px; }
+        .image-container::-webkit-scrollbar-thumb:hover { background: #999; }
     </style>
 </head>
 <body>
-    <h1>{{ site.title }}</h1>
+
+    <div class="header">
+        <h1>{{ site.title }}</h1>
+        <p>{{ site.description }}</p>
+    </div>
+
     <div class="gallery">
         {% for app in site.data.versions %}
         <div class="card">
             <div class="image-container">
+                {% assign image_list = app.images | join: ',' %}
                 {% for img_path in app.images %}
-                <img src="{{ img_path }}" alt="Screenshot">
+                <img src="{{ img_path }}" 
+                     alt="Screenshot of {{ app.name }}"
+                     data-images="{{ image_list }}"
+                     data-index="{{ forloop.index0 }}"
+                     onclick="openLightbox(this)">
                 {% endfor %}
             </div>
             
-            <h2 class="version-title">Version {{ app.name }}</h2>
-            <div class="release-date">Released: {{ app.date }} (Code: {{ app.code }})</div>
-            <p>{{ app.description }}</p>
+            <div class="version-header">
+                <h2 class="version-title">Version {{ app.name }}</h2>
+                <div class="release-date">Released: {{ app.date }} | Code: {{ app.code }}</div>
+            </div>
+            
+            <p class="description">{{ app.description }}</p>
             <a href="{{ app.download }}" class="download-btn">Download APK</a>
         </div>
         {% endfor %}
     </div>
+
+    <div id="lightbox" class="lightbox">
+        <span class="close-btn" onclick="closeLightbox()">&times;</span>
+        <div class="lightbox-content">
+            <button class="nav-btn prev" onclick="changeImage(-1)">&#10094;</button>
+            <img id="lightbox-img" src="" alt="Expanded Screenshot">
+            <button class="nav-btn next" onclick="changeImage(1)">&#10095;</button>
+        </div>
+    </div>
+
+    <script>
+        let currentImages = [];
+        let currentIndex = 0;
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightbox-img');
+
+        // When a user clicks an image
+        function openLightbox(imgElement) {
+            // Get the list of images for this specific app version
+            const imagesString = imgElement.getAttribute('data-images');
+            currentImages = imagesString.split(',');
+            
+            // Find out which specific image they clicked (0, 1, 2, etc.)
+            currentIndex = parseInt(imgElement.getAttribute('data-index'));
+            
+            // Set the image and show the lightbox
+            updateImage();
+            lightbox.style.display = 'flex';
+            document.body.style.overflow = 'hidden'; // Prevents background scrolling
+        }
+
+        // When a user clicks the X or outside the image
+        function closeLightbox() {
+            lightbox.style.display = 'none';
+            document.body.style.overflow = 'auto'; // Restores background scrolling
+        }
+
+        // When a user clicks Prev or Next
+        function changeImage(direction) {
+            currentIndex += direction;
+            
+            // Loop back to the beginning or end if they go too far
+            if (currentIndex >= currentImages.length) {
+                currentIndex = 0;
+            } else if (currentIndex < 0) {
+                currentIndex = currentImages.length - 1;
+            }
+            
+            updateImage();
+        }
+
+        // Updates the actual <img> source
+        function updateImage() {
+            lightboxImg.src = currentImages[currentIndex];
+        }
+
+        // Bonus: Allow closing the lightbox by clicking the dark background
+        lightbox.addEventListener('click', function(e) {
+            if (e.target === lightbox || e.target.className === 'lightbox-content') {
+                closeLightbox();
+            }
+        });
+        
+        // Bonus: Allow using Left/Right arrow keys and Escape key on keyboard
+        document.addEventListener('keydown', function(e) {
+            if (lightbox.style.display === 'flex') {
+                if (e.key === 'ArrowRight') changeImage(1);
+                if (e.key === 'ArrowLeft') changeImage(-1);
+                if (e.key === 'Escape') closeLightbox();
+            }
+        });
+    </script>
+
 </body>
 </html>
