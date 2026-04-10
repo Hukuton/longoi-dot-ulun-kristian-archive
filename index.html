@@ -13,7 +13,6 @@ layout: null
     
     <style>
         body { 
-            /* Use the new font and a softer background color */
             font-family: 'Inter', system-ui, -apple-system, sans-serif; 
             background-color: #f8fafc; 
             padding: 40px 20px; 
@@ -37,6 +36,15 @@ layout: null
         .header p {
             font-size: 1.1rem;
             color: #64748b;
+            margin-bottom: 20px;
+        }
+
+        /* --- NEW CSS FOR THE COUNTER BADGES --- */
+        .stats-badges {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 15px;
         }
 
         .gallery { 
@@ -50,17 +58,15 @@ layout: null
 
         .card { 
             background: #ffffff; 
-            border-radius: 20px; /* More rounded corners */
+            border-radius: 20px; 
             width: 100%; 
             padding: 30px; 
             box-sizing: border-box;
-            /* Modern, soft, multi-layered shadow */
             box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 20px 25px -5px rgba(0, 0, 0, 0.05); 
             border: 1px solid #f1f5f9;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
         
-        /* Card hover animation */
         .card:hover {
             transform: translateY(-4px);
             box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.08), 0 25px 50px -12px rgba(0, 0, 0, 0.1);
@@ -72,7 +78,6 @@ layout: null
             gap: 15px; 
             margin-bottom: 25px;
             padding-bottom: 15px;
-            /* Makes scrolling snap to images like a mobile app */
             scroll-snap-type: x mandatory; 
         }
         
@@ -126,7 +131,7 @@ layout: null
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            background: #2563eb; /* Modern blue */
+            background: #2563eb; 
             color: white; 
             padding: 12px 24px; 
             text-decoration: none; 
@@ -143,10 +148,8 @@ layout: null
             box-shadow: 0 6px 8px -1px rgba(37, 99, 235, 0.3);
         }
 
-        /* Hide scrollbar for a much cleaner look */
         .image-container::-webkit-scrollbar { height: 0px; background: transparent; }
 
-        /* --- LIGHTBOX (FULLSCREEN VIEWER) CSS --- */
         .lightbox {
             display: none; 
             position: fixed;
@@ -155,8 +158,8 @@ layout: null
             top: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(15, 23, 42, 0.85); /* Dark blue-grey tint */
-            backdrop-filter: blur(8px); /* Modern blur effect */
+            background-color: rgba(15, 23, 42, 0.85); 
+            backdrop-filter: blur(8px); 
             align-items: center;
             justify-content: center;
             flex-direction: column;
@@ -208,7 +211,6 @@ layout: null
         .nav-btn.prev { left: 5%; }
         .nav-btn.next { right: 5%; }
         
-        /* Mobile adjustments */
         @media (max-width: 600px) {
             .version-header { flex-direction: column; align-items: flex-start; gap: 10px; }
             .nav-btn { font-size: 40px; }
@@ -222,6 +224,12 @@ layout: null
     <div class="header">
         <h1>{{ site.title }}</h1>
         <p>{{ site.description }}</p>
+        
+        <div class="stats-badges">
+            <img src="https://img.shields.io/github/downloads/Hukuton/longoi-dot-ulun-kristian-archive/total?style=flat-square&color=2563eb&label=Total%20Downloads" alt="Total Downloads">
+            
+            <img src="https://api.visitorbadge.io/api/visitors?path=https%3A%2F%2Fhukuton.github.io%2Flongoi-dot-ulun-kristian-archive&label=Page%20Views&countColor=%232563eb" alt="Visitor Badge">
+        </div>
     </div>
 
     <div class="gallery">
@@ -274,7 +282,6 @@ layout: null
             
             updateImage();
             
-            // Small animation trick
             lightboxImg.style.opacity = '0';
             lightbox.style.display = 'flex';
             setTimeout(() => { lightboxImg.style.opacity = '1'; }, 50);
@@ -291,7 +298,7 @@ layout: null
         }
 
         function changeImage(direction) {
-            lightboxImg.style.opacity = '0.5'; // fade out slightly during change
+            lightboxImg.style.opacity = '0.5'; 
             
             setTimeout(() => {
                 currentIndex += direction;
