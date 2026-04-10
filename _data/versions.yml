@@ -4,7 +4,7 @@
   images:
     - "assets/images/v12_1.jpg"
   download: "https://github.com/Hukuton/longoi-dot-ulun-kristian-archive/releases/download/V1.0/12.apk"
-  description: "The latest stable version of Longoi."
+  description: "Update because of google policy."
 
 - code: 8
   name: "3.0.1"
@@ -12,7 +12,7 @@
   images:
     - "assets/images/v8_1.jpg"
   download: "https://github.com/Hukuton/longoi-dot-ulun-kristian-archive/releases/download/V1.0/8.apk"
-  description: "Major maintenance update."
+  description: "3.0.0 but bugs fix and typo correction."
 
 - code: 7
   name: "3.0.0"
@@ -25,7 +25,7 @@
     - "assets/images/v7_5.jpg"
     - "assets/images/v7_6.jpg"
   download: "https://github.com/Hukuton/longoi-dot-ulun-kristian-archive/releases/download/V1.0/7.apk"
-  description: "The transition to version 3.0."
+  description: "The transition to version 3.0. from red to blue. Many features added. Filter favorited list, auto scroll hymn, change from list to grid, collapsible liturgy(same as before), show music score from musescore iframe. Anyway, musescore maybe updated its api or policies and the scores now not visible anymore. And user can change the themes to light and dark. Theme from color seed, fonts from google"
 
 - code: 6
   name: "2.2.0"
@@ -36,7 +36,7 @@
     - "assets/images/v6_3.jpg"
     - "assets/images/v6_4.jpg"
   download: "https://github.com/Hukuton/longoi-dot-ulun-kristian-archive/releases/download/V1.0/6.apk"
-  description: "Legacy APK for older Android devices."
+  description: "Red version, I just learned sqlite just to remove the if else in version 1.0.3. Has favourite button, able to show and transpose guitar chords. The Liturgy is collapsible(its a html + css)"
 
 - code: 4
   name: "1.0.3"
@@ -46,7 +46,7 @@
     - "assets/images/v4_2.jpg"
     - "assets/images/v4_3.jpg"
   download: "https://github.com/Hukuton/longoi-dot-ulun-kristian-archive/releases/download/V1.0/4.apk"
-  description: "Early version with original UI."
+  description: "Basically 1.0.1 with bugs fix and typo correction."
 
 - code: 2
   name: "1.0.1"
@@ -56,4 +56,4 @@
     - "assets/images/v2_2.jpg"
     - "assets/images/v2_3.jpg"
   download: "https://github.com/Hukuton/longoi-dot-ulun-kristian-archive/releases/download/V1.0/2.apk"
-  description: "The classic version from the early days."
+  description: "The classic version from the early days. I was just finish my degree and needed to something to fill the boredoom of being unemployed. This has a bunch of if else statement for 121 hymns"
