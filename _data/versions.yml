@@ -25,7 +25,7 @@
     - "assets/images/v7_5.jpg"
     - "assets/images/v7_6.jpg"
   download: "https://github.com/Hukuton/longoi-dot-ulun-kristian-archive/releases/download/V1.0/7.apk"
-  description: "The transition to version 3.0. from red to blue. Many features added. Filter favorited list, auto scroll hymn, change from list to grid, collapsible liturgy(same as before), show music score from musescore iframe. Anyway, musescore maybe updated its api or policies and the scores now not visible anymore. And user can change the themes to light and dark. Theme from color seed, fonts from google"
+  description: "The transition to version 3.0. From red to blue. Many features added. Filter favorited list, auto scroll hymn, change from list to grid, collapsible liturgy(same as before), show music score from musescore iframe. Anyway, musescore maybe updated its api or policies and the scores now not visible anymore. And user can change the themes to light and dark. Theme from color seed, fonts from google. Developed using dart languge and flutter framework"
 
 - code: 6
   name: "2.2.0"
@@ -36,7 +36,7 @@
     - "assets/images/v6_3.jpg"
     - "assets/images/v6_4.jpg"
   download: "https://github.com/Hukuton/longoi-dot-ulun-kristian-archive/releases/download/V1.0/6.apk"
-  description: "Red version, I just learned sqlite just to remove the if else in version 1.0.3. Has favourite button, able to show and transpose guitar chords. The Liturgy is collapsible(its a html + css)"
+  description: "Red version, I just learned sqlite just to remove the if else in version 1.0.3. Has favourite button, able to show and transpose guitar chords. The Liturgy is collapsible(its a html + css). This app is the last app developed with java about 4 months to make"
 
 - code: 4
   name: "1.0.3"
@@ -56,4 +56,4 @@
     - "assets/images/v2_2.jpg"
     - "assets/images/v2_3.jpg"
   download: "https://github.com/Hukuton/longoi-dot-ulun-kristian-archive/releases/download/V1.0/2.apk"
-  description: "The classic version from the early days. I was just finish my degree and needed to something to fill the boredoom of being unemployed. This has a bunch of if else statement for 121 hymns"
+  description: "The classic version from the early days. I was just finished my degree and needed to do something to fill the boredoom of being unemployed. This has a bunch of if else statement for 121 hymns"
